@@ -464,3 +464,69 @@ person = {
 print(person['option']['age'])
 # 22
 ```
+## 11. Opertator Precedence
+1. (), [], {} : Parentheses and braces
+2. [index], [index:index] : Subscription, slicing
+3. await x : await expression
+4. ** : Exponentiation
+5. +x, -x, ~x : positive, negative, bitwise Not
+6. *, @, /, // % : Multiplication, matrix multiplication, division, floor division, remainder
+7. +, - : Addition and subtraction
+8. <<, >> : left shifts, right shifts
+9. & : bitwise AND
+10. ^ : bitwise XOR
+11. | : bitwise OR
+12. in, not in, is, is not, <, <=,>, >=, !=, ==
+13. not x
+14. and
+15. orr
+16. if - else
+17. lambda
+18. := 
+
+## 12. Toan tu so hoc - Arithmetic Operators
+- `+` toan tu cong
+- `-` toan tu tru
+- `*` toan tu nhan
+- `/` toan tu chia
+- `%` toan tu chia lay phan du
+- `**` toan tu mu a**b = a mu b
+- `//` toan tu chia lam tron xuong
+## 13. Toan tu gan
+- `=`  c = a
+- `+=` c += a => c = c+a
+- `-=` c -= a => c = c - a
+- `*=` c*=a   => c = c*a
+- `/=` c/=a   => c = c/a
+- `%=` c%=a  => c = c%a
+- `**=` c**=a => c = c**a
+- `//=` c//=a => c = c//a
+## 14. Toan tu so sanh
+- `<` a<b
+- `>` a>b
+- `<=` a<=b
+- `>=` a>=b
+- `==` a==b
+- `!=` a!=b
+## 15. Toan tu logic
+- `and`
+- `or`
+- `not`
+## 16. Toan tu biwter
+- `&`
+- `|`
+- `^`
+- `~`
+- `<<`
+- `>>`
+## 17. Toan tu khai thac
+- `in` check a elemnt in list
+- `not in` check not in list
+## 18. Toan tu xac thuc
+- `is` => a == b
+- `not is ` => a!=b
+## 19. Control flow
+1. The if statement : python provides if..elif..else control statement as a part of decision marking
+2. The match statement: 
+3. Loops or Iteration Statements : The for loop and the while loop
+
