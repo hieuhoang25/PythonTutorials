@@ -529,4 +529,166 @@ print(person['option']['age'])
 1. The if statement : python provides if..elif..else control statement as a part of decision marking
 2. The match statement: 
 3. Loops or Iteration Statements : The for loop and the while loop
-
+## 20. Match case statements
+1. Syntax
+```python
+  match variable_name:
+    case 'pattern 1': statement 1
+    case 'pattern 2': statement 2
+    ...
+    case 'pattern n': statement n
+    case '_': statement not true
+```
+2. Combined cases
+Sometime, there may be a situation where for more thanone case, a similar action has to be taken. For this, you can combine cases wwith the OR operator represented by "|" symbol
+```python
+def access(user):
+    match user:
+        case "admin" | "manager": return "full access"
+        case "guest" : return "limited access"
+        case _: return "no access"
+print(access("user"))
+print(access("guest"))
+print(access("admin"))
+```
+3. List as the argument
+Since python can match the expression against any literal, you can use a list as a case value. Moreover, for variable number if items in the list, they can be parsed to a sequence with "*" operator
+```python
+def greeting(details):
+    match details:
+        case [time,name]:
+            return f"Good {time} {name}!"
+        case [time, *names]:
+            msg = ''
+            for name in names:
+                msg += f'Good {time} {name}!\n'
+            return msg
+print(greeting(["Morning", "Hieu"]))
+print(greeting(["Afternoon", "Hieu"]))
+print(greeting(["Morning", "Hieu", "Cuong","hOANG"]))
+```
+4. Using "if" in "case" clauses
+Python allows you to include if statements in the case clause for conditional computation of match varibles
+## 21. Loops
+```python
+for interating_var in sequence:
+    statements(s)
+```
+1. Using for with a string
+A string is a sequence of unicode letters, each having a positional index. The following example compares each character
+and displays if it is not a vowel ('a','e','I')
+```python
+# 1. Using "for" with a String
+zen ='''
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+'''
+print(zen)
+for char in zen:
+    if char not in 'aeiou':
+        print(char, end=' ')
+```
+2. Using "for" with a tuple
+Python's tuple object is also an indexed sequence, and hence we can traverse its items with a for loop
+```python
+numbers = (1,2,3,4,5,5,6,7)
+total = 0
+for num in numbers:
+    total+=num
+print("Total = ", total)
+```
+3. Using "for" with List
+Python's list object is also an indexed sequence, and hence we can traverse its items with a for loop
+```python
+numbers  = [1,2,3,4,5,6,7]
+for num in numbers:
+    if num % 2 == 0:
+        print(num, end=' ')
+```
+4. Using "for" with a range object
+Pythons's built-in range object is also an indexed. 
+```python
+range(start, stop, step)
+```
+- `Start` - starting value of the range. Optional, default 0
+- `Stop`  - The range goes upto stop -1
+- `Step`  -  Integers in the range increment bt the step value. Option, default is 1
+```python
+numbers = range(5)
+'''
+start is 0 by default
+step is 1 by default
+range generated from 0 to 4
+'''
+print(list(numbers))
+# step is 1 by default, range generated from 10 to 19
+numbers = range(10,20)
+print(list(numbers))
+# range generated from 1 to 10 increment by step of 2
+numbers = range(1,10,2)
+print(list(numbers))
+for num in numbers:
+    print(num, end='')
+```
+5. Factorial of a number
+Factorial is a product of all numbers from 1 to that number say n. It can alse be defined as profuct of 1,2, up, to n
+```python
+Factorial of a number n! = 1*2*...*n
+```
+6. Using "for" Loop with Sequence Index
+To iterate over a sequence, we can obtain the list of indices using the range() function
+```python
+Indices = range(len(sequence))
+```
+7. Using "for" Loop with Dictionary
+Unlike a list, tuple or a string, dictionary data type in python is not sequence, as the items do not have a position index. However, traversing a dictionary is still possible with deffent techniques
+## 22. for else loops
+```python
+for count in range(6):
+    print("Iteration no. {}".format(count))
+else :
+    print("For loop over. Now in else block ")
+print("End of for loop")
+```
+2. Nested loops in python
+```python
+for interation_var in sequence:
+    for interating_var in sequence:
+        statemnets(n)
+        statemnets(n)
+```
+```python
+    while expression:
+        while expression:
+            statements(n)
+        statement(n)
+```
+## 23. While loops in python
+```python
+# syntax
+while expression:
+    statement(n)
+```
+```python
+count = 0
+while count < 5 :
+    count += 1
+    print("Iteration no  %i"%(count))
+print("End of while loop")
+var = '0'
+while var.isnumeric() == True:
+    var = input('enter a number..')
+    if var.isnumeric() == True:
+        print("Your input:",var)
+print("End of while loop")
+```
+2. The infinite loop
+```python
+var = 1
+while var == 1:
+    num = int(input('enter a number:'))
+    print("Your input:",num)
+print("Goodbye")
+```
