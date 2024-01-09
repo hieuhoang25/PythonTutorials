@@ -692,3 +692,113 @@ while var == 1:
     print("Your input:",num)
 print("Goodbye")
 ```
+## 24. Functions
+1. Types of functions:
+- Built-in functions
+- Functions defined in build-in modules
+- User-defined functions
+Python's standard library includes number of built-in functions. Some of python's built-in functions are print(), int(), len(), sum(), etc.
+2. Defining functions
+```python
+def functionname(params):
+    "function_docstring"
+    function_suite
+    return [expression]
+```
+2. Pass by reference vs value
+There are two function calling mechanisms: Call by Value and Call by Reference
+![Alt text](image.png)
+3. Types of functions arguments
+- Positional or required arguments
+- Keyword arguments
+- Default arguments
+- Positional-only arguments
+- Keyword-only arguments
+- Arbitrary or variable-length arguments
+4. Order of arguments
+![Alt text](image-1.png)
+## 25. Default arguments
+```python
+def printinfo(name, age = 35):
+    "This prints a passed infor into this functions."
+    print("Name: ", name)
+    print("Age: ", age)
+
+printinfo("Hieu")
+printinfo(name = "Hoang")
+printinfo(name = "Sinh", age = 20)
+printinfo(age = 20) #errror
+
+```
+## 26. Keywords Arguments
+```python
+def printinfo(name, age):
+    "This prints a passed infor into this functions."
+    print("Name: ", name)
+    print("Age: ", age)
+
+# call  by positional arguments
+printinfo("Hieu", 24)
+# call by keyword arguments
+printinfo(name="Hieu", age=24)
+
+printinfo("Hieu", age=24)
+#printinfo(name="Hieu", 24) #Positional argument cannot appear after keyword argumentsPylance
+
+```
+## 27. Keyword-only Arguments
+```python
+def printinfo(arg1, *, kwarg1, kwarg2):
+    print(arg1, kwarg1, kwarg2)
+#call
+printinfo("Hieu", kwarg1="123", kwarg2="123")
+```
+## 28. Positonal-only Arguments
+```python
+def intr(amt,rate, /):
+    val = amt*rate/100
+    return val
+print(intr(2,3))
+#print(intr(amt=2,rate=3)) # intr() got some positional-only arguments passed as keyword arguments: 'amt, rate'
+def intr(amt,rate, /, ab, xy):
+    val = amt*rate/100
+    return val
+print(intr(2,3, ab=2, xy=3))
+```
+## 29. Arbitrary Arguments
+```python
+# An argument prefixed with a single asterisk * for arvitary positional parameters
+# sum of numbers
+def add(*args):
+    s = 0
+    for x in args:
+        s+=x
+    return s
+result = add(10,20,30,40)
+print(result)
+# The args variable prefixed with "*" stores all the values passed to it. Here args becomes a tuple. We can run a loop, over its items to add the numbers
+def add(init, *args):
+    s = init # 1
+    for x in args: # 10,20,30,40
+        s+=x
+    return s
+result = add(1, 10,20,30,40)
+print(result)
+
+# An argument prefixed with a two asterisk ** for arvitary positional parameters
+def addr(**kwargs):
+    for k,v in kwargs.items():
+        print("{} : {} ".format(k,v))
+addr(Name = "John", City = "Mubai")
+# addr("John", "Mubai") # addr() takes 0 positional arguments but 2 were given
+def percent(math, sci, **aptional):
+    print("math: ", math)
+    print("sci: ", sci)
+    s = math +sci
+    for k,v in aptional.items():
+        print("{} {}".format(k,v))
+        s = s +v
+    return s / (len(aptional)+2)
+result = percent(70,75, Eng=70, Math =50)
+
+```
